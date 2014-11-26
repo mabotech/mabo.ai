@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 
+*.toml
+*.tpl
+
 # C extensions
 *.so
 
