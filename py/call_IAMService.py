@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+"""
+IAMService
+"""
 import xml.sax.saxutils as saxutils
 
 # post xml soap message
@@ -11,7 +14,7 @@ from cStringIO import StringIO
 
 #import static
 
-class CallMethod(object):
+class IAMClient(object):
     
     def __init__(self):
         pass
@@ -125,7 +128,7 @@ class CallMethod(object):
 
 def main():
     
-    cm = CallMethod()
+    cm = IAMClient()
     
     xmlstr = cm.getUserByUsername()
     
