@@ -13,7 +13,7 @@ def encryptSHA(password):
     
 def test():
     
-    d = encryptSHA('Passw0rd')
+    d = encryptSHA('Appsjgl')
     
     print d
 
@@ -23,6 +23,7 @@ def test():
     
 if __name__ == "__main__":
     
-    print encryptSHA("zhaoqian")
-    print "{SHA}fWRzvSb5Q0khi9uSjCkSrvteN9s="
-    #test()
+    print base64.b64decode("+gyCOJlGPRu8sYOwP+D+Qw==")
+    #print encryptSHA("zhaoqian")
+    #print "{SHA}fWRzvSb5Q0khi9uSjCkSrvteN9s="
+    test()

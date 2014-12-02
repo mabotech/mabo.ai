@@ -14,14 +14,25 @@ from cStringIO import StringIO
 
 #import static
 
+import toml
+
 class IAMClient(object):
     
     def __init__(self):
-        pass
+        conf_fn = "config.toml"
+        
+        with open(conf_fn) as conf_fh:
+        
+            self.conf = toml.loads(conf_fh.read())
+            
+
+        print(self.conf)
 
     def getUserByUsername(self):
         
         #config = static.ERP_CONFIG #'SL 8.0'
+        
+        user = {"username":self.conf["username"], "password":self.conf["password"]}
         
         SM_TEMPLATE = r"""<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:aut="http://authentication.service.iam.foton.com/">
 <soapenv:Header/>
@@ -62,7 +73,7 @@ class IAMClient(object):
         #print SoapMessage
         #construct and send the header
         
-        host =HOST
+        host =self.conf["HOST"]
         webservice = httplib.HTTP(host)
         webservice.putrequest("POST", "/IAMService/services/soap/authenticationService")
         webservice.putheader("Host", host)
